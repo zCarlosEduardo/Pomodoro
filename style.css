@@ -1,0 +1,191 @@
+:root {
+  --white: rgb(255 255 255);
+  --zinc-700: rgb(63 63 70);
+  --zinc-900: rgb(24 24 27);
+  --indigo-50: rgb(238 242 255);
+  --indigo-300: rgb(165 180 252);
+}
+
+/* estilização padrão */
+
+body {
+  background: var(--zinc-900);
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  align-items: center;
+  text-align: center;
+  min-height: 50vw;
+}
+
+button {
+  padding: 17px;
+  background: var(--indigo-300);
+  border-radius: 5px;
+  border: none;
+  color: var(--zinc-900);
+  transition: transform 0.3s, color 0.2s, background 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  background: var(--indigo-50);
+  cursor: pointer;
+}
+
+
+button:disabled {
+  background-color: var(--zinc-700);
+  opacity: 10;
+  transform: translateY(3px);
+}
+
+button:disabled:hover {
+  cursor: auto;
+  box-shadow: none;
+  transform: translateY(3px);
+}
+
+.button-box-left:hover {
+  transform: translateX(2px) translateY(-2px);
+  box-shadow: rgba(99, 102, 241, 0.4) -5px 5px,
+    rgba(99, 102, 241, 0.3) -10px 10px, rgba(99, 102, 241, 0.2) -15px 15px,
+    rgba(99, 102, 241, 0.1) -20px 20px, rgba(99, 102, 241, 0.05) -25px 25px;
+}
+
+.button-box-center:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(99, 102, 241, 0.4) 0px 5px, rgba(99, 102, 241, 0.3) 0px 10px,
+    rgba(99, 102, 241, 0.2) 0px 15px, rgba(99, 102, 241, 0.1) 0px 20px,
+    rgba(99, 102, 241, 0.05) 0px 25px;
+}
+
+.button-box-right:hover {
+  transform: translateX(-2px) translateY(-2px);
+  box-shadow: rgba(99, 102, 241, 0.4) 5px 5px, rgba(99, 102, 241, 0.3) 10px 10px,
+    rgba(99, 102, 241, 0.2) 15px 15px, rgba(99, 102, 241, 0.1) 20px 20px,
+    rgba(99, 102, 241, 0.05) 25px 25px;
+}
+
+/* Escolha o tempo */
+
+.atividade {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.atividade button {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Timer */
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 40%;
+  background: var(--indigo-300);
+  position: relative;
+    transition: background-color .5s;
+  box-shadow: 
+    rgba(99, 102, 241, 0.4) 0px 5px, 
+    rgba(99, 102, 241, 0.3) 0px 10px,
+    rgba(99, 102, 241, 0.2) 0px 15px, 
+    rgba(99, 102, 241, 0.1) 0px 20px, 
+    rgba(99, 102, 241, 0.05) 0px 25px,
+    rgba(99, 102, 241, 0.4) 5px 0px,
+    rgba(99, 102, 241, 0.3) 10px 0px,
+    rgba(99, 102, 241, 0.2) 15px 0px, 
+    rgba(99, 102, 241, 0.1) 20px 0px, 
+    rgba(99, 102, 241, 0.05) 25px 0px,
+    rgba(99, 102, 241, 0.4) 0px -5px, 
+    rgba(99, 102, 241, 0.3) 0px -10px,
+    rgba(99, 102, 241, 0.2) 0px -15px, 
+    rgba(99, 102, 241, 0.1) 0px -20px, 
+    rgba(99, 102, 241, 0.05) 0px -25px,
+    rgba(99, 102, 241, 0.4) -5px 0px,
+    rgba(99, 102, 241, 0.3) -10px 0px,
+    rgba(99, 102, 241, 0.2) -15px 0px, 
+    rgba(99, 102, 241, 0.1) -20px 0px, 
+    rgba(99, 102, 241, 0.05) -25px 0px;
+}
+
+.circle:hover {
+  background: var(--indigo-50);
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  width: 97%;
+  height: 97%;
+  border-radius: 40%;
+  background: var(--zinc-900);
+}
+
+.time {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.time p {
+  font-size: 48px;
+  font-weight: lighter;
+}
+
+.time p:nth-of-type(2) {
+  position: relative;
+  top: -0.3rem;
+  margin-inline: 0.5rem;
+  font-weight: 600;
+}
+
+/* Controles */
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.controls button span {
+  font-size: 32px;
+  color: var(--zinc-900);
+}
+
+.controls button:nth-of-type(1) {
+  padding: 10px;
+}
+
+.controls button:nth-of-type(1) span {
+  font-size: 46px;
+  font-weight: bold;
+}
+
+
+/* Ajustando para celular */
+
+@media only screen and (max-width: 600px) {
+  body {
+    height: 100%;
+    margin-top: 30vw;
+  }
+}
