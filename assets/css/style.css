@@ -1,3 +1,5 @@
+/* Estilização padrão */
+
 :root {
   --white: rgb(255 255 255);
   --zinc-700: rgb(63 63 70);
@@ -6,7 +8,6 @@
   --indigo-300: rgb(165 180 252);
 }
 
-/* estilização padrão */
 
 body {
   background: var(--zinc-900);
@@ -33,7 +34,6 @@ button:hover {
   background: var(--indigo-50);
   cursor: pointer;
 }
-
 
 button:disabled {
   background-color: var(--zinc-700);
@@ -93,7 +93,7 @@ button:disabled:hover {
   border-radius: 50%;
 }
 
-.circle {
+.ring {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,35 +102,24 @@ button:disabled:hover {
   border-radius: 40%;
   background: var(--indigo-300);
   position: relative;
-    transition: background-color .5s;
-  box-shadow: 
-    rgba(99, 102, 241, 0.4) 0px 5px, 
-    rgba(99, 102, 241, 0.3) 0px 10px,
-    rgba(99, 102, 241, 0.2) 0px 15px, 
-    rgba(99, 102, 241, 0.1) 0px 20px, 
-    rgba(99, 102, 241, 0.05) 0px 25px,
-    rgba(99, 102, 241, 0.4) 5px 0px,
-    rgba(99, 102, 241, 0.3) 10px 0px,
-    rgba(99, 102, 241, 0.2) 15px 0px, 
-    rgba(99, 102, 241, 0.1) 20px 0px, 
-    rgba(99, 102, 241, 0.05) 25px 0px,
-    rgba(99, 102, 241, 0.4) 0px -5px, 
-    rgba(99, 102, 241, 0.3) 0px -10px,
-    rgba(99, 102, 241, 0.2) 0px -15px, 
-    rgba(99, 102, 241, 0.1) 0px -20px, 
-    rgba(99, 102, 241, 0.05) 0px -25px,
-    rgba(99, 102, 241, 0.4) -5px 0px,
-    rgba(99, 102, 241, 0.3) -10px 0px,
-    rgba(99, 102, 241, 0.2) -15px 0px, 
-    rgba(99, 102, 241, 0.1) -20px 0px, 
-    rgba(99, 102, 241, 0.05) -25px 0px;
+  transition: background-color 0.5s;
+  box-shadow: rgba(99, 102, 241, 0.4) 0px 5px, rgba(99, 102, 241, 0.3) 0px 10px,
+    rgba(99, 102, 241, 0.2) 0px 15px, rgba(99, 102, 241, 0.1) 0px 20px,
+    rgba(99, 102, 241, 0.05) 0px 25px, rgba(99, 102, 241, 0.4) 5px 0px,
+    rgba(99, 102, 241, 0.3) 10px 0px, rgba(99, 102, 241, 0.2) 15px 0px,
+    rgba(99, 102, 241, 0.1) 20px 0px, rgba(99, 102, 241, 0.05) 25px 0px,
+    rgba(99, 102, 241, 0.4) 0px -5px, rgba(99, 102, 241, 0.3) 0px -10px,
+    rgba(99, 102, 241, 0.2) 0px -15px, rgba(99, 102, 241, 0.1) 0px -20px,
+    rgba(99, 102, 241, 0.05) 0px -25px, rgba(99, 102, 241, 0.4) -5px 0px,
+    rgba(99, 102, 241, 0.3) -10px 0px, rgba(99, 102, 241, 0.2) -15px 0px,
+    rgba(99, 102, 241, 0.1) -20px 0px, rgba(99, 102, 241, 0.05) -25px 0px;
 }
 
-.circle:hover {
+.ring:hover {
   background: var(--indigo-50);
 }
 
-.circle::before {
+.ring::before {
   content: "";
   position: absolute;
   width: 97%;
@@ -180,12 +169,11 @@ button:disabled:hover {
   font-weight: bold;
 }
 
-
 /* Ajustando para celular */
 
 @media only screen and (max-width: 600px) {
   body {
-    height: 100%;
-    margin-top: 30vw;
+    height: 100vw;
+    margin-top: 25vw;
   }
 }

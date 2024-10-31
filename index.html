@@ -14,35 +14,67 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <section>
       <div class="atividade">
-        <button id="atividadeButton" class="button-box-left" aria-label="Tempo em atividade 25 minutos." disabled>Atividade</button>
-        <button id="descansoButton" class="button-box-right" aria-label="Tempo em descanso 5 minutos">Descanso</button>
+        <button
+          disabled
+          id="atividadeButton"
+          class="button-box-left"
+          aria-label="Tempo em atividade 25 minutos."
+        >
+          Atividade
+        </button>
+        <button
+          id="descansoButton"
+          class="button-box-right"
+          aria-label="Tempo em descanso 5 minutos"
+        >
+          Descanso
+        </button>
       </div>
       <div class="timer">
-        <div class="circle">
+        <div class="ring">
           <div class="time">
-            <p id="minutes">25</p>
+            <p id="minutos">25</p>
             <p>:</p>
-            <p id="seconds">00</p>
+            <p id="segundos">00</p>
           </div>
         </div>
       </div>
       <div class="controls">
-        <button id="startButton" class="button-box-left" aria-label="Iniciar tempo">
+        <button
+          id="startButton"
+          class="button-box-left"
+          aria-label="Iniciar tempo"
+        >
           <span class="material-symbols-sharp"> arrow_right </span>
         </button>
-        <button id="pauseButton" class="button-box-center" aria-label="Pausar tempo" disabled>
+        <button
+          disabled
+          id="pauseButton"
+          class="button-box-center"
+          aria-label="Pausar tempo"
+        >
           <span class="material-symbols-sharp"> timer_pause </span>
         </button>
-        <button id="resetButton" class="button-box-right" aria-label="Reiniciar tempo" disabled>
+        <button
+          disabled
+          id="resetButton"
+          class="button-box-right"
+          aria-label="Reiniciar tempo"
+        >
           <span class="material-symbols-sharp"> history </span>
         </button>
       </div>
     </section>
-    <script src="index.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
