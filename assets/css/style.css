@@ -8,17 +8,27 @@
   --indigo-300: rgb(165 180 252);
 }
 
-
 body {
   background: var(--zinc-900);
-  display: flex;
   font-family: "Quicksand", sans-serif;
-  flex-direction: column;
   justify-content: center;
   color: var(--white);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 50vw;
+  min-height: 100vh;
+  margin: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 button {
