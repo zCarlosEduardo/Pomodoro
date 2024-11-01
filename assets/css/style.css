@@ -178,12 +178,3 @@ button:disabled:hover {
   font-size: 46px;
   font-weight: bold;
 }
-
-/* Ajustando para celular */
-
-@media only screen and (max-width: 600px) {
-  body {
-    height: 100vw;
-    margin-top: 25vw;
-  }
-}
