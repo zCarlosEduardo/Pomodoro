@@ -4,11 +4,19 @@ const iniciarButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
 
-const tempoInicial = 1500; // Tempo de ativiade
+// Função para definir os estados dos botões
+function atividadesBotoes(atividade, descanso, iniciar, pause, reset) {
+  atividadeButton.disabled = atividade;
+  descansoButton.disabled = descanso;
+  iniciarButton.disabled = iniciar;
+  pauseButton.disabled = pause;
+  resetButton.disabled = reset;
+}
 
-var tempo = tempoInicial;
-var ultimoTempo = tempoInicial;
-var timerInterval;
+const tempoInicial = 1500; // Tempo de atividade
+let tempo = tempoInicial;
+let ultimoTempo = tempoInicial;
+let timerInterval;
 
 const tempoAtividade = tempoInicial;
 const tempoDescanso = 300; // Tempo de descanso
@@ -17,34 +25,25 @@ const tempoDescanso = 300; // Tempo de descanso
 function atualizarTempo(novoTempo) {
   tempo = novoTempo;
   ultimoTempo = novoTempo;
-  // A o mudar o tempo ele atualiza o display imediatamente
-  atualizarDisplay();
+  atualizarDisplay(); // Atualiza o display imediatamente
 }
 
 // Função para atualizar a exibição
 function atualizarDisplay() {
-  // Formata os números
-  var min = Math.floor(tempo / 60);
-  var seg = tempo % 60;
+  let min = Math.floor(tempo / 60);
+  let seg = tempo % 60;
 
   if (min < 10) min = "0" + min;
   if (seg < 10) seg = "0" + seg;
 
-  // Imprime as variáveis
   document.getElementById("minutos").textContent = min;
   document.getElementById("segundos").textContent = seg;
 
-  // Configurando as ações dos botões
   iniciarButton.disabled = true;
-
   if (tempo <= 0) {
-    pauseButton.disabled = true;
-    atividadeButton.disabled = false;
-    descansoButton.disabled = false;
+    atividadesBotoes(false, false, true, true, true);
   } else {
-    pauseButton.disabled = false;
-    atividadeButton.disabled = true;
-    descansoButton.disabled = true;
+    atividadesBotoes(true, true, true, false, true);
   }
 }
 
@@ -55,62 +54,34 @@ function temporizador() {
     tempo--;
   } else {
     clearInterval(timerInterval);
-    // Para o timer com o tempo
   }
 }
 
-// Habilitando e desabilitando botões
-
 // Atividade
 atividadeButton.addEventListener("click", function () {
-  // Atualiza o tempo e para o timer.
   atualizarTempo(tempoAtividade);
   clearInterval(timerInterval);
-
-  // Ações
-  atividadeButton.disabled = true;
-  descansoButton.disabled = false;
-  iniciarButton.disabled = false;
-  pauseButton.disabled = true;
-  resetButton.disabled = true;
+  atividadesBotoes(true, false, false, true, true);
 });
 
 // Descanso
 descansoButton.addEventListener("click", function () {
   atualizarTempo(tempoDescanso);
   clearInterval(timerInterval);
-
-  // Ações
-  atividadeButton.disabled = false;
-  descansoButton.disabled = true;
-  iniciarButton.disabled = false;
-  pauseButton.disabled = true;
-  resetButton.disabled = true;
+  atividadesBotoes(false, true, false, true, true);
 });
 
 // Iniciar
 iniciarButton.addEventListener("click", function () {
-  // Começa o temporizador
-  timerInterval = setInterval(temporizador, 1000);
-
-  // Ações
-  atividadeButton.disabled = true;
-  descansoButton.disabled = true;
-  iniciarButton.disabled = true;
-  resetButton.disabled = false;
-  pauseButton.disabled = false;
+  atividadesBotoes(true, true, true, false, true);
+  setTimeout(function() {
+    timerInterval = setInterval(temporizador, 1000);});
 });
 
 // Pausar
 pauseButton.addEventListener("click", function () {
   clearInterval(timerInterval);
-
-  // Ações
-  atividadeButton.disabled = true;
-  descansoButton.disabled = true;
-  iniciarButton.disabled = false;
-  pauseButton.disabled = true;
-  resetButton.disabled = false;
+  atividadesBotoes(true, true, false, true, false);
 });
 
 // Reiniciar
@@ -119,15 +90,12 @@ resetButton.addEventListener("click", function () {
   tempo = ultimoTempo;
   atualizarDisplay();
 
-  // Ações
-  if (ultimoTempo == tempoAtividade) {
-    atividadeButton.disabled = true;
-    descansoButton.disabled = false;
-  } else if (ultimoTempo == tempoDescanso) {
-    atividadeButton.disabled = false;
-    descansoButton.disabled = true;
+  if (ultimoTempo === tempoAtividade) {
+    atividadesBotoes(true, false, false, true, true);
+  } else if (ultimoTempo === tempoDescanso) {
+    atividadesBotoes(false, true, false, true, true);
   } else {
-    alert("Erro critico ao selecioar o tempo, erro: 001");
+    alert("Erro crítico ao selecionar o tempo, código de erro: 001. Verifique as variáveis de tempo.");
   }
 
   iniciarButton.disabled = false;
